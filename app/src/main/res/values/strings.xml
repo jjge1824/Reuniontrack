@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Reunion track</string>
+    <string name="title_activity_login">Reunion tracker</string>
 </resources>
