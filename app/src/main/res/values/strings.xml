@@ -1,4 +1,7 @@
 <resources>
+    <string name="facebook_app_id">1919208521685413</string>
+    <string name="fb_login_protocol_scheme">fb1919208521685413</string>
+
     <string name="app_name">Reunion track</string>
     <string name="title_activity_login">Reunion tracker</string>
 </resources>
