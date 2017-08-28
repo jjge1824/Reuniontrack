@@ -4,4 +4,13 @@
 
     <string name="app_name">Reunion track</string>
     <string name="title_activity_login">Reunion tracker</string>
+
+    <string name="login_correo">Correo electronico</string>
+    <string name="login_contra">Contraseña</string>
+    <string name="login_btn_iniciar">Iniciar Sesión</string>
+    <string name="login_btn_registro">Registrarse</string>
+
+    <array name="login">
+        <item></item>
+    </array>
 </resources>

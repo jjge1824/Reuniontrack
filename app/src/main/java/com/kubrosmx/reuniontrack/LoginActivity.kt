@@ -13,7 +13,19 @@ import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
 import java.util.*
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import android.view.View
+
+
 class LoginActivity : AppCompatActivity() {
+
+    private val mGoogleApiClient: GoogleApiClient? = null
+
+    private val TAG = "LoginActivity"
+    private val RC_SIGN_IN = 9001
 
     companion object {
         lateinit var instance: LoginActivity
@@ -25,6 +37,18 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build()
+
+        findViewById(R.id.sign_in_button).setOnClickListener( {
+            val signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient)
+            startActivityForResult(signInIntent, RC_SIGN_IN)
+
+        });
+
+
 
         instance = this
 
@@ -58,6 +82,13 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode === RC_SIGN_IN) {
+            val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
+            handleSignInResult(result)
+        }
+
+
         callbackManager.onActivityResult(requestCode, resultCode, data)
     }
 
@@ -78,6 +109,29 @@ class LoginActivity : AppCompatActivity() {
                     this,
                     Arrays.asList("public_profile")
             );
+        }
+    }
+
+    private fun handleSignInResult(result: GoogleSignInResult) {
+        if (result.isSuccess()) {
+            // Signed in successfully, show authenticated UI.
+            updateUI(true)
+            instance.toast("Login Exitoso")
+            escribirPreferencia("google_logueado", "1")
+            var intent = Intent(instance, PrincipalActivity::class.java)
+            startActivity(intent)
+            finish()
+        } else {
+            // Signed out, show unauthenticated UI.
+            updateUI(false)
+        }
+    }
+
+    private fun updateUI(signedIn: Boolean) {
+        if (signedIn) {
+            findViewById(R.id.sign_in_button).visibility = View.GONE
+        } else {
+            findViewById(R.id.sign_in_button).visibility = View.VISIBLE
         }
     }
 }

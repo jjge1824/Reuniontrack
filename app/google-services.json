@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1066605253563",
+    "project_id": "reunion-track"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1066605253563:android:06d3992c2ccf6438",
+        "android_client_info": {
+          "package_name": "com.kubrosmx.reuniontrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1066605253563-s4rv2lf0ooe9ecfft15dqtrvvc9mkr43.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kubrosmx.reuniontrack",
+            "certificate_hash": "e9f0bcc3ab1f80cd8291ff71617ac85a9b6eb2fd"
+          }
+        },
+        {
+          "client_id": "1066605253563-njosdtu06oukot2tmrqvg9kgkjoupi07.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaCDl2A56dJyk8g7D_L0W-M9QvcyeOHNA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
