@@ -36,6 +36,25 @@ En dado caso de que el proyecto ya exista en un repositorio y se desee trabajar 
     git checkout -b [NOMBRE DE LA RAMA]
     git pull origin [NOMBRE DE LA RAMA]
 
+Subir cambios
+------
+
+Para subir cambios al repositorio es necesario añadir todos los archivos con o los o creados mediante:
+
+    git add [RUTA COMPLETA DEL ARCHIVO O CARPETA]
+**NOTA:** añadiendo una carpeta tambien se añade todo el contenido
+
+Despues se require de un commit mediante:
+
+    git commit -m "[COMMENTARIO RELACIONADO CON LO QEU SE SUBE]"
+
+Como regla se realizará un pull antes de subir los cambios mediante
+
+    git pull origin [RAMA]
+
+Y despues subir los cambios mediante
+
+    git push origin [RAMA]
 
 > **Kubrosmx**
 	> Jose Jesus Guzman Eusebio
